@@ -1,80 +1,3 @@
-// import React, { useState } from 'react';
-// import './App.css'; // Import the custom CSS
-
-// const App = () => {
-//   const [audioContext, setAudioContext] = useState(null);
-//   const [mediaStream, setMediaStream] = useState(null);
-//   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-
-//   const startAudio = async () => {
-//     try {
-//       const context = new (window.AudioContext || window.webkitAudioContext)();
-//       setAudioContext(context);
-
-//       const getUserMedia = navigator.mediaDevices?.getUserMedia || 
-//         navigator.getUserMedia || 
-//         navigator.webkitGetUserMedia || 
-//         navigator.mozGetUserMedia;
-
-//       if (!getUserMedia) {
-//         throw new Error('getUserMedia is not supported in this browser');
-//       }
-
-//       const stream = await getUserMedia.call(navigator.mediaDevices || navigator, { audio: true });
-//       setMediaStream(stream);
-
-//       const source = context.createMediaStreamSource(stream);
-//       const destination = context.destination;
-//       source.connect(destination);
-
-//       setIsAudioPlaying(true);
-//     } catch (error) {
-//       console.error('Error accessing microphone:', error);
-//     }
-//   };
-
-//   const stopAudio = () => {
-//     if (mediaStream) {
-//       mediaStream.getTracks().forEach(track => track.stop());
-//     }
-//     if (audioContext) {
-//       audioContext.close();
-//     }
-//     setIsAudioPlaying(false);
-//   };
-
-//   const handleMicClick = () => {
-//     if (isAudioPlaying) {
-//       stopAudio();
-//     } else {
-//       startAudio();
-//     }
-//   };
-
-//   return (
-//     <div className="App">
-//       <h1>Microphone to Speaker</h1>
-//       <div 
-//         className={`mic-button-85 ${isAudioPlaying ? 'active' : 'idle'}`} 
-//         onClick={handleMicClick}
-//       >
-//          <p className={`${isAudioPlaying ? 'fa-solid fa-microphone-lines-slash' : 'fa-solid fa-microphone-lines'}`}  style={{ color: `${isAudioPlaying ? '#2b4ae4' : '#fff'}`, fontSize: '26px' }}></p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default App;
-
-
-
-
-
-
-
-
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 
@@ -126,7 +49,7 @@ const App = () => {
       audioContext.close();
     }
     setIsAudioPlaying(false);
-    cancelAnimationFrame(animationFrameRef.current); // Stop visualizing sound
+    cancelAnimationFrame(animationFrameRef.current); 
   };
 
   const handleMicClick = () => {
@@ -150,7 +73,7 @@ const App = () => {
     const draw = () => {
       analyser.getByteTimeDomainData(dataArray);
 
-      canvasCtx.fillStyle = 'rgb(255, 255, 255)';
+      canvasCtx.fillStyle = 'rgb(245, 245, 250)';
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
       canvasCtx.lineWidth = 2;
@@ -194,17 +117,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Microphone to Speaker with Visualization</h1>
-      <div 
-        className={`mic-button-85 ${isAudioPlaying ? 'active' : 'idle'}`} 
-        onClick={handleMicClick}
-      >
-         <p className={`${isAudioPlaying ? 'fa-solid fa-microphone-lines-slash' : 'fa-solid fa-microphone-lines'}`}  style={{ color: `${isAudioPlaying ? '#2b4ae4' : '#fff'}`, fontSize: '26px' }}></p>
-      </div>
+      <h1>Amplify</h1>
       <canvas ref={canvasRef} className="visualizer" />
+      <div 
+        className={`button-67 ${isAudioPlaying ? 'active' : 'idle'}`} 
+        onClick={handleMicClick}
+        style={{width: '100px'}}
+      >
+         <p className={`${isAudioPlaying ? 'fa-solid fa-microphone-lines-slash' : 'fa-solid fa-microphone-lines'}`}  style={{ color: `${isAudioPlaying ? '#66668A' : '#C0C0D8'}`, fontSize: '26px' }}></p>
+      </div>
+      <p className='footer-text'>made with 🩶 by <b>Yadev Jayachandran</b></p>
     </div>
   );
 };
+
+
 
 export default App;
 
