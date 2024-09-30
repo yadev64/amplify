@@ -77,7 +77,7 @@ const App = () => {
       canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
 
       canvasCtx.lineWidth = 2;
-      canvasCtx.strokeStyle = 'rgb(240, 240, 240)';
+      canvasCtx.strokeStyle = 'rgb(192, 192, 216)';
 
       canvasCtx.beginPath();
 
@@ -117,7 +117,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Amplify</h1>
+     <a 
+        href="https://github.com/yadev64/amplify"
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="github-icon"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <h1>Amplify 🎙️</h1>
       <canvas ref={canvasRef} className="visualizer" />
       <div 
         className={`button-67 ${isAudioPlaying ? 'active' : 'idle'}`} 
@@ -126,7 +134,7 @@ const App = () => {
       >
          <p className={`${isAudioPlaying ? 'fa-solid fa-microphone-lines-slash' : 'fa-solid fa-microphone-lines'}`}  style={{ color: `${isAudioPlaying ? '#66668A' : '#C0C0D8'}`, fontSize: '26px' }}></p>
       </div>
-      <p className='footer-text'>made with 🩶 by <b>Yadev Jayachandran</b></p>
+      <p className='footer-text'>made with 🩶 by <b><a href="https://github.com/yadev64">Yadev Jayachandran</a></b></p>
     </div>
   );
 };

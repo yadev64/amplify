@@ -8,6 +8,11 @@
   background-color: #F5F5FA;
 }
 
+body {
+  overflow-y: hidden;
+  /* Disable vertical scrolling */
+}
+
 h1 {
   margin-bottom: 20px;
   font-family: 'Arial', sans-serif;
@@ -19,7 +24,7 @@ h1 {
   width: 80%;
   height: 150px;
   /* border: 2px solid #000; */
-  background-color: #ffffff;
+  background-color: #F5F5FA;
 }
 
 .button-67 {
@@ -64,5 +69,27 @@ h1 {
 .footer-text{
   position: absolute;
   bottom: 10px;
-  
+
+}
+
+.github-icon {
+  position: absolute;
+  /* Positioning */
+  top: 20px;
+  /* Adjust top margin */
+  right: 20px;
+  /* Adjust right margin */
+  font-size: 24px;
+  /* Icon size */
+  color: #333;
+  /* Icon color */
+  text-decoration: none;
+  /* No underline */
+  transition: color 0.3s;
+  /* Smooth transition for hover */
+}
+
+.github-icon:hover {
+  color: #555;
+  /* Darker color on hover */
 }
